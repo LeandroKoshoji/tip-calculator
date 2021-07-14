@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=., initial-scale=1.0" />
+    <title>Tip Calculator</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+          <div class="tittle__wrapper">
+              <h1>SPLI</h1>
+              <h1>TTER</h1>
+          </div>
+      </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="calculator__wrapper">
+                <div class="operations__container">
+                    <div class="bill__container">
+                        <p class="operation-section__title">Bill</p>
+                        <div class="input__container">
+                            <label for="">
+                                <img src="assets/images/icon-dollar.svg" alt="Dollar Icon">
+                            </label>
+                            <input type="number" min="1" id="bill" class="standard__input" value="312.2">
+                        </div>
+                    </div>
+                    <div class="tips__container">
+                        <p class="operation-section__title">Select Tip %</p>
+                        <div class="tips__button-container">
+                            <button class="tip__button">5%</button>
+                            <button class="tip__button">10%</button>
+                            <button class="tip__button">15%</button>
+                            <button class="tip__button">25%</button>
+                            <button class="tip__button">50%</button>
+                            <input type="number" class="tip__input" id="tip" placeholder="Custom">
+                        </div>
+                    </div>
+                    <div class="peoples__container">
+                        <p class="operation-section__title">Number of People</p>
+                        <div class="input__container">
+                            <label for="">
+                                <img src="assets/images/icon-person.svg" alt="Person Icon">
+                            </label>
+                            <input type="number" min="1" id="person" class="standard__input" value="5">
+                        </div>
+                    </div>
+                </div>
+                <div class="display__container">
+                    <div class="tip-amount__container">
+                        <div class="left-side__container">
+                            <p class="display-section__title">Tip Amount</p>
+                            <span class="display-section__subtitle">/person</span>
+                        </div>
+                        <div class="right-side__container">
+                            <span class="display-section__number">$4.27</span>
+                        </div>
+                    </div>
+                    <div class="total__container">
+                        <div class="left-side__container">
+                            <p class="display-section__title">Total</p>
+                            <span class="display-section__subtitle">/person</span>
+                        </div>
+                        <div class="right-side__container">
+                            <span class="display-section__number">$32.79</span>
+                        </div>
+                    </div>
+                    <button class="reset__button">RESET</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="attribution">Challenge by
+              <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by
+              <a href="https://github.com/LeandroKoshoji">Leandro Koshoji Araujo</a>.
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
