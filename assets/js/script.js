@@ -6,77 +6,98 @@ const tipAmountContainer = document.querySelector('[data-js="tip_amount"]')
 const totalAmountContainer = document.querySelector('[data-js="total_amount"]')
 const resetButton = document.querySelector('[data-js="reset_button"]')
 
-const percentageButtons = Array.from(tipsButtons.children).filter(item => item.nodeName === 'INPUT')
+const percentageButtons = Array.from(tipsButtons.children)
+    .filter(item => item.nodeName === 'INPUT')
 
 const calculateTip = percentage => {
   const billAmount = Number(billInput.value)
   const peopleAmount = Number(peopleInput.value)
 
-  const tipAmount = (((billAmount * percentage) / peopleAmount)).toFixed(2)
+  const tipAmount = ((billAmount * percentage) / peopleAmount).toFixed(2)
   const totalAmount = ((billAmount + billAmount * percentage) / peopleAmount).toFixed(2)
 
   return [tipAmount, totalAmount]
 }
 
 const insertDataIntoDom = ([tipAmount, totalAmount]) => {
-    tipAmountContainer.textContent = tipAmount
-    totalAmountContainer.textContent = totalAmount
+  tipAmountContainer.textContent = tipAmount
+  totalAmountContainer.textContent = totalAmount
 }
 
 const listenToBillAndPeopleInputs = percentage => {
-    billInput.addEventListener('input', () => {
-        insertDataIntoDom(calculateTip(percentage))
-    })
-    peopleInput.addEventListener('input', () => {
-        insertDataIntoDom(calculateTip(percentage))
-    })
+  billInput.addEventListener('input', () => {
+    insertDataIntoDom(calculateTip(percentage))
+  })
+  peopleInput.addEventListener('input', () => {
+    insertDataIntoDom(calculateTip(percentage))
+  })
 }
 
-const uncheckRadio = ()=> {
-    percentageButtons.forEach(input => {
-        input.checked = false
-      })
+const uncheckRadio = () => {
+  percentageButtons.forEach(input => {
+    input.checked = false
+  })
 }
 
-const resetDOM = ()=> {
-    billInput.parentElement.style.border = 'none'
-    billInput.value = ''
-    customPercentageInput.value = ''
-    peopleInput.value = '1'
-    tipAmountContainer.textContent = '0'
-    totalAmountContainer.textContent = '0'
-  
-    uncheckRadio()
+const resetDOM = () => {
+  billInput.parentElement.style.border = 'none'
+  billInput.value = ''
+  customPercentageInput.value = ''
+  peopleInput.value = '1'
+  tipAmountContainer.textContent = '0'
+  totalAmountContainer.textContent = '0'
+
+  uncheckRadio()
+}
+
+const createErrorParagraph = peopleContainer => {
+  const errorParagraph = document.createElement('p')
+  errorParagraph.textContent = 'Can`t be zero or lower!'
+  errorParagraph.style.color = 'red'
+  errorParagraph.style.textAlign = 'center'
+  peopleContainer.style.border = '1px solid red'
+  peopleContainer.insertAdjacentElement('beforebegin', errorParagraph)
 }
 
 percentageButtons.forEach(input => {
-    input.addEventListener('click', () => {
-        const isChecked = input.checked
-        const billContainer = billInput.parentElement
+  input.addEventListener('click', () => {
+    const billContainer = billInput.parentElement
+    const peopleContainer = peopleInput.parentElement
+    const isPeoplePreviousElementErrorParagraph = 
+        peopleContainer.previousElementSibling.textContent.includes('Can`t')
 
-        if (billInput.value === '') {
-            billContainer.style.border = '1px solid #ff0000'
-            uncheckRadio()
-            return
-        }
+    const isChecked = input.checked
+    const isBillEmpty = billInput.value === ''
+    const isPeopleZeroOrLower = peopleInput.value <= 0
 
-        // if(peopleInput.value <= 0) {
-        //     peopleInput.style.border = '1px solid #ff0000'
-        //     uncheckRadio()
-        //     return
-        // }
+    if (isBillEmpty) {
+      billContainer.style.border = '1px solid #ff0000'
+      uncheckRadio()
+      return
+    }
 
-        if (isChecked) {
-        const percentage = Number(input.value) / 100
+    if (isPeopleZeroOrLower) {
+      if (isPeoplePreviousElementErrorParagraph) return
 
-        customPercentageInput.value = ''
-        billContainer.style.border = '1px solid #00ff00'
+      createErrorParagraph(peopleContainer)
+      uncheckRadio()
+    }
 
-        insertDataIntoDom(calculateTip(percentage))
+    if (isChecked) {
+      const percentage = Number(input.value) / 100
 
-        listenToBillAndPeopleInputs(percentage)
-        }
-    })
+      if (isPeoplePreviousElementErrorParagraph) {
+        peopleContainer.style.border = 'none'
+        peopleContainer.previousElementSibling.remove()
+      }
+
+      customPercentageInput.value = ''
+      billContainer.style.border = '1px solid #00ff00'
+
+      insertDataIntoDom(calculateTip(percentage))
+      listenToBillAndPeopleInputs(percentage)
+    }
+  })
 })
 
 customPercentageInput.addEventListener('input', e => {
@@ -89,8 +110,5 @@ customPercentageInput.addEventListener('input', e => {
   insertDataIntoDom(calculateTip(percentage))
   listenToBillAndPeopleInputs(percentage)
 })
-peopleInput.addEventListener('input', e => {
-    
 
-})
 resetButton.addEventListener('click', resetDOM)
