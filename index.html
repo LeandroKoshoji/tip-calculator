@@ -29,21 +29,21 @@
                             <label for="">
                                 <img src="assets/images/icon-dollar.svg" alt="Dollar Icon">
                             </label>
-                            <input data-js="bill_input" type="number" min="1" id="bill" class="standard__input" >
+                            <input data-js="bill_input" type="number" min="1" id="bill" class="standard__input" required> 
                         </div>
                     </div>
                     <div class="tips__container">
                         <p class="operation-section__title">Select Tip %</p>
                         <div data-js="tips_buttons" class="tips__button-container">
-                            <input type="checkbox" id="fiver_percentage" name="percentage_option" value="5">
+                            <input type="radio" id="fiver_percentage" name="percentage_option" value="5">
                             <label for="fiver_percentage" class="tip__button">5%</label>
-                            <input type="checkbox" id="ten_percentage" name="percentage_option" value="10">
+                            <input type="radio" id="ten_percentage" name="percentage_option" value="10">
                             <label for="ten_percentage" class="tip__button">10%</label>
-                            <input type="checkbox" id="fiften_percentage" name="percentage_option" value="15">
+                            <input type="radio" id="fiften_percentage" name="percentage_option" value="15">
                             <label for="fiften_percentage" class="tip__button">15%</label>
-                            <input type="checkbox" id="twenty-five_percentage" name="percentage_option" value="25">
+                            <input type="radio" id="twenty-five_percentage" name="percentage_option" value="25">
                             <label for="twenty-five_percentage" class="tip__button">25%</label>
-                            <input type="checkbox" id="fifty_percentage" name="percentage_option" value="50">
+                            <input type="radio" id="fifty_percentage" name="percentage_option" value="50">
                             <label for="fifty_percentage" class="tip__button">50%</label>
                             <input data-js="custom_percentage" type="number" class="tip__input" id="tip" placeholder="Custom">
                         </div>
@@ -54,7 +54,7 @@
                             <label for="person">
                                 <img src="assets/images/icon-person.svg" alt="Person Icon">
                             </label>
-                            <input data-js="people_input" type="number" min="1" id="person" class="standard__input" value="5">
+                            <input data-js="people_input" type="number" min="1" id="person" class="standard__input" value="1" required>
                         </div>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                         </div>
                         <div class="right-side__container">
                             <span class="display-section__number">$</span>
-                            <span data-js="tip_amount" class="display-section__number">34.12</span>
+                            <span data-js="tip_amount" class="display-section__number">0</span>
 
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                         </div>
                         <div class="right-side__container">
                             <span class="display-section__number">$</span>
-                            <span data-js="total_amount" class="display-section__number">344.12</span>
+                            <span data-js="total_amount" class="display-section__number">0</span>
                         </div>
                     </div>
                     <button class="reset__button" data-js="reset_button">RESET</button>

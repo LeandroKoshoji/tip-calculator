@@ -123,10 +123,10 @@ button {
     color: var(--clr-neutral-100);
     cursor: pointer;
 }
-input[type="checkbox"] {
+input[type="radio"] {
     display: none;
 }
-input[type="checkbox"]:checked + .tip__button {
+input[type="radio"]:checked + .tip__button {
     background-color: var(--clr-accent);
     color: var(--clr-neutral-900);
 }
