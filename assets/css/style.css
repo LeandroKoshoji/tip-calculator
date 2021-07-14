@@ -104,6 +104,7 @@ button {
     font-size: 1.5rem;
     text-align: right;
     border: none;
+    outline: none;
     background-color: transparent;
 }
 .tips__button-container {
@@ -112,6 +113,7 @@ button {
     gap: 1rem;
 }
 .tip__button {
+    text-align: center;
     font-size: 1.2rem;
     border-radius: 5px;
     width: 100%;
@@ -119,8 +121,12 @@ button {
     border: none;
     background-color: var(--clr-neutral-900);
     color: var(--clr-neutral-100);
+    cursor: pointer;
 }
-.tip__button:hover {
+input[type="checkbox"] {
+    display: none;
+}
+input[type="checkbox"]:checked + .tip__button {
     background-color: var(--clr-accent);
     color: var(--clr-neutral-900);
 }

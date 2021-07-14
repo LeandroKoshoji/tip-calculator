@@ -29,27 +29,32 @@
                             <label for="">
                                 <img src="assets/images/icon-dollar.svg" alt="Dollar Icon">
                             </label>
-                            <input type="number" min="1" id="bill" class="standard__input" value="312.2">
+                            <input data-js="bill_input" type="number" min="1" id="bill" class="standard__input" >
                         </div>
                     </div>
                     <div class="tips__container">
                         <p class="operation-section__title">Select Tip %</p>
-                        <div class="tips__button-container">
-                            <button class="tip__button">5%</button>
-                            <button class="tip__button">10%</button>
-                            <button class="tip__button">15%</button>
-                            <button class="tip__button">25%</button>
-                            <button class="tip__button">50%</button>
-                            <input type="number" class="tip__input" id="tip" placeholder="Custom">
+                        <div data-js="tips_buttons" class="tips__button-container">
+                            <input type="checkbox" id="fiver_percentage" name="percentage_option" value="5">
+                            <label for="fiver_percentage" class="tip__button">5%</label>
+                            <input type="checkbox" id="ten_percentage" name="percentage_option" value="10">
+                            <label for="ten_percentage" class="tip__button">10%</label>
+                            <input type="checkbox" id="fiften_percentage" name="percentage_option" value="15">
+                            <label for="fiften_percentage" class="tip__button">15%</label>
+                            <input type="checkbox" id="twenty-five_percentage" name="percentage_option" value="25">
+                            <label for="twenty-five_percentage" class="tip__button">25%</label>
+                            <input type="checkbox" id="fifty_percentage" name="percentage_option" value="50">
+                            <label for="fifty_percentage" class="tip__button">50%</label>
+                            <input data-js="custom_percentage" type="number" class="tip__input" id="tip" placeholder="Custom">
                         </div>
                     </div>
                     <div class="peoples__container">
                         <p class="operation-section__title">Number of People</p>
                         <div class="input__container">
-                            <label for="">
+                            <label for="person">
                                 <img src="assets/images/icon-person.svg" alt="Person Icon">
                             </label>
-                            <input type="number" min="1" id="person" class="standard__input" value="5">
+                            <input data-js="people_input" type="number" min="1" id="person" class="standard__input" value="5">
                         </div>
                     </div>
                 </div>
@@ -60,7 +65,9 @@
                             <span class="display-section__subtitle">/person</span>
                         </div>
                         <div class="right-side__container">
-                            <span class="display-section__number">$4.27</span>
+                            <span class="display-section__number">$</span>
+                            <span data-js="tip_amount" class="display-section__number">34.12</span>
+
                         </div>
                     </div>
                     <div class="total__container">
@@ -69,10 +76,11 @@
                             <span class="display-section__subtitle">/person</span>
                         </div>
                         <div class="right-side__container">
-                            <span class="display-section__number">$32.79</span>
+                            <span class="display-section__number">$</span>
+                            <span data-js="total_amount" class="display-section__number">344.12</span>
                         </div>
                     </div>
-                    <button class="reset__button">RESET</button>
+                    <button class="reset__button" data-js="reset_button">RESET</button>
                 </div>
             </div>
         </div>
