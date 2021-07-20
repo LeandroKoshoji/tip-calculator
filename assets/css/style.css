@@ -188,7 +188,12 @@ input[type="radio"]:checked + .tip__button {
 }
 
 /* footer */
-.attribution { font-size: 11px; text-align: center; margin-top: 3rem;}
+.attribution { 
+    font-size: 11px;
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem
+}
 .attribution a { color: hsl(228, 45%, 44%); }
 
 @media (max-width: 768px) {
